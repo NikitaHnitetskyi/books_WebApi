@@ -36,7 +36,8 @@ namespace my_books
             services.AddControllers();
 
             //Configure DBContext with SQL
-            services.AddDbContext<AppDbContext>(options => options.UseSqlServer(ConnectionString));
+            services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString
+                ("DefaultConnectionString2")));
 
             //Confiure the Services
             services.AddTransient<BooksService>();
